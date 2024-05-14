@@ -4,15 +4,15 @@
         public $director;
         public $year;
         public $rating;
-        public $genre; 
+        public $genres; 
         public $duration;
 
-        public function __construct($_name, $_director, $_year, $_rating, $_genre, $_duration,){
+        public function __construct($_name, $_director, $_year, $_rating, $_genres, $_duration,){
             $this->name = $_name;
             $this->director = $_director;
             $this->year = $_year;
             $this->rating = $_rating;
-            $this->genre = $_genre;
+            $this->genres = $_genres;
             $this->duration = $_duration;
         }
 
@@ -21,13 +21,13 @@
             return $full_movie;
         }
         public function getMovieInfo(){
-            $movie_info = $this->rating . ', ' . $this->genre . ', ' . $this->duration;
+            $movie_info = $this->rating . ', ' .implode(', ', $this->genres) . ', ' . $this->duration;
             return $movie_info;
         }
     }
 
-    $movie_1 = new Movie('Joker','Todd Philips', 2019, '8.4', 'Thriller', '121 min');
-    $movie_2 = new Movie('Bohemian Rhapsody','Bryan Singer', 2018, '8.1', 'Biografico', '134 min');
+    $movie_1 = new Movie('Joker','Todd Philips', 2019, '8.4', ['Thriller', 'Drama'], '121 min');
+    $movie_2 = new Movie('Bohemian Rhapsody','Bryan Singer', 2018, '8.1', ['Biographical', 'Drama', 'Music'], '134 min');
     var_dump($movie_1);
     var_dump($movie_2);
 
